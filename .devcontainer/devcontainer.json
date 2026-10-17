@@ -1,0 +1,27 @@
+{
+  "name": "paper-minecraft-server",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
+  "forwardPorts": [25565],
+  "portsAttributes": {
+    "25565": {
+      "label": "minecraft-java",
+      "onAutoForward": "ignore"
+    }
+  },
+  "updateContentCommand": "bash .devcontainer/onCreate.sh",
+  "remoteEnv": {
+    "PAPER_DIR": "${containerEnv:PWD}"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
